@@ -1,0 +1,27 @@
+<div class="container-fluid bacon-background">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bacon-navbar">
+      <a class="navbar-brand" href="#">
+        <img src="content/images/bacon-logo.png" alt="Bacon Ipsum" width="30" height="30" />
+        Bacon Ipsum Generator
+      </a>
+    </nav>
+  </header>
+  <main role="main" class="main-content">
+    <div class="jumbotron bacon-jumbotron text-white">
+      <div class="container">
+        <h1 class="display-3">Welcome to Bacon Ipsum Generator!</h1>
+        <p>Your source for delicious filler text. Fill your website with savory bacon goodness!</p>
+      </div>
+    </div>
+    <div class="container">
+      <!-- Content will be injected here -->
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Powered by <a href="https://baconipsum.com" target="_blank">Bacon Ipsum</a></p>
+    </div>
+  </footer>
+</div>

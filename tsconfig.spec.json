@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/main/webapp/**/*.ts"],
+  "compilerOptions": {
+    "composite": false, // Set composite to false or remove this option
+    "outDir": "target/out-tsc/spec",
+    "types": ["jest", "node"]
+  }
+}
