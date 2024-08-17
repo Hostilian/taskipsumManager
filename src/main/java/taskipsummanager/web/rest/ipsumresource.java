@@ -17,7 +17,8 @@ public class ipsumresource {
     }
 
     @GetMapping("/bacon-ipsum")
-    public ResponseEntity<Object> getBaconIpsum() {
-        return ResponseEntity.ok(ipsumGeneratorService.generateBaconIpsum());
+    public ResponseEntity<String> getBaconIpsum() {
+        String baconIpsum = ipsumGeneratorService.generateBaconIpsum();
+        return ResponseEntity.ok(baconIpsum);
     }
 }

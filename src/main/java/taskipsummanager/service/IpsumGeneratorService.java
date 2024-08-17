@@ -1,10 +1,10 @@
-//package com.taskipsum.service;
 package taskipsummanager.service;
 
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 public class IpsumGeneratorService {
@@ -56,8 +56,10 @@ public class IpsumGeneratorService {
         this.fillerWords = fillerWords;
     }
 
-    public Object generateBaconIpsum() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'generateBaconIpsum'");
+    public String generateBaconIpsum() {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://baconipsum.com/api/?type=meat-and-filler";
+        String[] response = restTemplate.getForObject(url, String[].class);
+        return String.join(" ", response);
     }
 }
