@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>taskipsummanager</groupId>
@@ -83,6 +83,7 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- Project dependencies -->
         <dependency>
             <groupId>tech.jhipster</groupId>
             <artifactId>jhipster-framework</artifactId>
@@ -176,8 +177,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <!-- Adding the engine dependency to the surefire-plugin unfortunately does not work in the current version. -->
-            <!-- https://www.archunit.org/userguide/html/000_Index.html#_junit_5 -->
             <groupId>com.tngtech.archunit</groupId>
             <artifactId>archunit-junit5-engine</artifactId>
             <version>${archunit-junit5.version}</version>
@@ -367,6 +366,48 @@
                         <nodeVersion>${node.version}</nodeVersion>
                         <npmVersion>${npm.version}</npmVersion>
                     </configuration>
+                    <executions>
+                        <execution>
+                            <id>install-node-and-npm</id>
+                            <goals>
+                                <goal>install-node-and-npm</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>npm install</id>
+                            <goals>
+                                <goal>npm</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>webapp build dev</id>
+                            <goals>
+                                <goal>npm</goal>
+                            </goals>
+                            <phase>generate-resources</phase>
+                            <configuration>
+                                <arguments>run webapp:build</arguments>
+                                <environmentVariables>
+                                    <APP_VERSION>${project.version}</APP_VERSION>
+                                </environmentVariables>
+                                <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>webapp build prod</id>
+                            <goals>
+                                <goal>npm</goal>
+                            </goals>
+                            <phase>generate-resources</phase>
+                            <configuration>
+                                <arguments>run webapp:prod</arguments>
+                                <environmentVariables>
+                                    <APP_VERSION>${project.version}</APP_VERSION>
+                                </environmentVariables>
+                                <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>com.google.cloud.tools</groupId>
@@ -712,6 +753,7 @@
     </build>
 
     <profiles>
+        <!-- Profile configurations -->
         <profile>
             <id>api-docs</id>
             <properties>
@@ -746,7 +788,7 @@
             </activation>
             <dependencies>
                 <dependency>
-                    <!-- The following dependency is added due to issue #9175-->
+                    <!-- The following dependency is added due to issue #9175 -->
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-undertow</artifactId>
                 </dependency>
@@ -800,21 +842,6 @@
                     </plugins>
                 </pluginManagement>
             </build>
-        </profile>
-        <profile>
-            <!--
-                Profile for applying IDE-specific configuration.
-                At the moment it configures MapStruct and Hibernate JPA Metamodel Generator, which you need when working
-                with DTOs and entity filtering.
-            -->
-            <id>IDE</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.mapstruct</groupId>
-                    <artifactId>mapstruct-processor</artifactId>
-                    <version>${mapstruct.version}</version>
-                </dependency>
-            </dependencies>
         </profile>
         <profile>
             <id>prod</id>

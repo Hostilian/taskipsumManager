@@ -14,7 +14,7 @@
     "backend:nohttp:test": "./mvnw -ntp checkstyle:check --batch-mode",
     "backend:start": "./mvnw -Dskip.installnodenpm -Dskip.npm",
     "backend:unit:test": "./mvnw -ntp -Dskip.installnodenpm -Dskip.npm verify --batch-mode -Dlogging.level.ROOT=OFF -Dlogging.level.tech.jhipster=OFF -Dlogging.level.taskipsummanager=OFF -Dlogging.level.org.springframework=OFF -Dlogging.level.org.springframework.web=OFF -Dlogging.level.org.springframework.security=OFF",
-    "build": "npm run webapp:prod --",
+    "build": "ng build --configuration production",
     "build-watch": "concurrently 'npm run webapp:build:dev -- --watch' npm:backend:start",
     "ci:backend:test": "npm run backend:info && npm run backend:doc:test && npm run backend:nohttp:test && npm run backend:unit:test -- -P$npm_package_config_default_environment",
     "ci:e2e:package": "npm run java:$npm_package_config_packaging:$npm_package_config_default_environment -- -Pe2e -Denforcer.skip=true",
@@ -44,7 +44,7 @@
     "jest": "jest --coverage --logHeapUsage --maxWorkers=2 --config jest.conf.js",
     "lint": "eslint . --ext .js,.ts",
     "lint:fix": "npm run lint -- --fix",
-    "prepare": "husky",
+    "prepare": "if [ -d .git ]; then husky install; fi",
     "prettier:check": "prettier --check \"{,src/**/,webpack/,.blueprint/**/}*.{md,json,yml,html,cjs,mjs,js,ts,tsx,css,scss,java}\"",
     "prettier:format": "prettier --write \"{,src/**/,webpack/,.blueprint/**/}*.{md,json,yml,html,cjs,mjs,js,ts,tsx,css,scss,java}\"",
     "serve": "npm run start --",
@@ -61,7 +61,7 @@
     "webapp:dev": "ng serve",
     "webapp:dev-ssl": "ng serve --ssl",
     "webapp:dev-verbose": "ng serve --verbose",
-    "webapp:prod": "npm run clean-www && npm run webapp:build:prod",
+    "webapp:prod": "ng build --configuration=production",
     "webapp:test": "npm run test --"
   },
   "config": {
