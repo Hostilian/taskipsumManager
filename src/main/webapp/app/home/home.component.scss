@@ -1,23 +1,76 @@
 /* ==========================================================================
-Main page styles
-========================================================================== */
+   Main page styles - Bacon Edition
+   ========================================================================== */
 
-.hipster {
+.bacon-hipster {
   display: inline-block;
   width: 347px;
   height: 497px;
-  background: url('../../content/images/jhipster_family_member_2.svg') no-repeat center top;
+  background: url('/assets/images/bacon_hipster.svg') no-repeat center top;
   background-size: contain;
 }
 
-/* wait autoprefixer update to allow simple generation of high pixel density media query */
+/* High-density pixel media queries for better image resolution */
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
   only screen and (-moz-min-device-pixel-ratio: 2),
   only screen and (-o-min-device-pixel-ratio: 2/1),
   only screen and (min-resolution: 192dpi),
   only screen and (min-resolution: 2dppx) {
-  .hipster {
-    background: url('../../content/images/jhipster_family_member_2.svg') no-repeat center top;
+  .bacon-hipster {
+    background: url('/assets/images/bacon_hipster@2x.svg') no-repeat center top;
     background-size: contain;
   }
+}
+
+/* Additional Bacon Styling */
+body {
+  background-color: #fff7e6;
+  color: #8b4513;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #d04a02;
+}
+
+a {
+  color: #d04a02;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #8b4513;
+}
+
+.alert-success {
+  background-color: #f28e1c;
+  color: #ffffff;
+}
+
+.alert-warning {
+  background-color: #ffad33;
+  color: #333333;
+}
+
+button,
+.btn {
+  background-color: #d04a02;
+  color: #ffffff;
+  border: 2px solid #8b4513;
+  border-radius: 5px;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #8b4513;
+  color: #ffffff;
+}
+
+pre {
+  color: #d04a02;
 }

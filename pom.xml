@@ -12,16 +12,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.1</version>
+        <version>3.3.2</version>
         <relativePath/>
-        <!-- lookup parent from repository -->
     </parent>
 
     <properties>
-        <!--
-            Build properties
-            The spring-boot version should match the one managed by https://mvnrepository.com/artifact/tech.jhipster/jhipster-dependencies/${jhipster-dependencies.version}
-        -->
         <maven.version>3.2.5</maven.version>
         <java.version>17</java.version>
         <node.version>v20.15.0</node.version>
@@ -351,7 +346,6 @@
                     <version>${spotless-maven-plugin.version}</version>
                     <configuration>
                         <java>
-                            <!-- <removeUnusedImports/> -->
                         </java>
                     </configuration>
                     <executions>
