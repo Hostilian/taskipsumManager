@@ -1,4 +1,10 @@
+"Pamatujte, že síla je ve vašich rukou, síla, která kdysi ležela v prachu a stínu. Nyní vzhlížejte, neb vaše odhodlání zformovalo nové světy."
+
 # taskIpsumManager
+
+**Goal:** 
+
+Create a simple full-stack web app using JHipster, Spring Boot, and Angular. Implement a Task entity with CRUD operations, containerize with Docker, automate with GitHub Actions, and customize lorem ipsum content.
 
 This application was generated using JHipster 8.6.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.6.0](https://www.jhipster.tech/documentation-archive/v8.6.0).
 
