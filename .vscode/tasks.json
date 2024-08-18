@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "backend:build-cache",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: backend:build-cache",
+      "detail": "./mvnw dependency:go-offline -ntp"
+    }
+  ]
+}
